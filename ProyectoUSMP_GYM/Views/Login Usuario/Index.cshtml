@@ -1,0 +1,97 @@
+﻿@model ProyectoUSMP_GYM.Models.Response.LoginPersonal
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/lib/Plugins/fontawesome-free/css/all.min.css" />
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="~/lib/Plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/lib/dist/css/adminlte.min.css" />
+</head>
+
+<body class="hold-transition login-page">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="https://images.vexels.com/media/users/3/208268/isolated/preview/899f67b99c2e34c06d5ef43ee4d5bc82-caracter-de-ejercicio-hombre-feliz.png">
+
+            </div>
+            <div class="col">
+                <div class="login-box">
+
+                    <!-- /.login-logo -->
+                    <div class="card card-outline card-warning">
+                        <div class="card-header text-center">
+                            <a href="#" class="h1"><b>GYM </b>S.A.C</a>
+                        </div>
+                        <div class="card-body">
+                            <p class="login-box-msg">Iniciar sesión</p>
+
+                            <form action="#" method="post">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Usuario" asp-for="Usuario">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-user-tie"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="password" class="form-control" placeholder="Password"
+                                           asp-for="Password">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-lock"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="icheck-primary">
+                                            <input type="checkbox" id="remember">
+                                            <label for="remember">
+                                                Recordar
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-4">
+                                        <button type="submit" class="btn btn-warning btn-block">Ingresar</button>
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /.login-box -->
+
+    <script src="~/lib/Plugins/jquery/jquery.min.js"></script>
+    <script src="~/lib/Plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/dist/js/adminlte.min.js"></script>
+
+    @section Scripts {
+        <script src="~/js/Login/_AuthLogin.js"></script>
+    }
+
+</body>
+
+</html>

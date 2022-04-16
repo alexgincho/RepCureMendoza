@@ -1,0 +1,13 @@
+﻿
+.button-cancel {
+    display: inline-block;
+    width: 100px !important;
+    height: 36px !important;
+    padding: 6px 12px !important;
+    margin: 5px !important;
+}
+.conten-table {
+    background-color: #f1f1f140 !important;
+    padding: 9px !important;
+    border-radius: 15px !important;
+}

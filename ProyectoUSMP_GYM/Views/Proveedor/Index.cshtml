@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Title = "Proveedor";
+}
+<!-- Pagina Principal del Proveedor -->
+<div class="row">
+    <div class="col-md-12">
+        <button class="btn btn-primary" id="btnAddProveedor" data-target="#staticBackdrop"><i class="fas fa-user-plus"></i>  Agregar Proveedor</button>
+    </div>
+</div>
+<div class="modal-container"></div> <!-- Contenedor del Modal-->
+
+<div class="row">
+    <div class="col-md-12 mt-5">
+        <div class="conten-table">
+            <table id="TableProveedor" class="table table-head-fixed">
+            </table>
+        </div>
+    </div>
+</div>
+@section Scripts {
+
+    <script src="~/js/Proveedor/Index.js"></script>
+
+}

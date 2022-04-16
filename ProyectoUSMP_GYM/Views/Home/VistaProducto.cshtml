@@ -1,0 +1,114 @@
+﻿@{
+    ViewData["Title"] = "Productos";
+    Layout = "~/Views/Shared/Layout2.cshtml";
+}
+@model ProyectoUSMP_GYM.Models.ModelDB.Producto
+@*@{
+        List<ProyectoUSMP_GYM.Models.ModelDB.Producto> productos = new List<ProyectoUSMP_GYM.Models.ModelDB.Producto>();
+        productos = ViewBag.Productos;
+    }*@
+
+<div class="row mt-5">
+    <div class="bg-secondary py-3">
+        <div class="container my-3">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Los Productos al alcance De Tu Mano</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-2">
+        <div class="container px-2 px-lg-2 mt-5">
+            <div id="catalogo-productos" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Seleccione una Categoría</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row row-categoria">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @*<script src="~/assets/js/tienda.js"></script>*@
+
+<script>
+        $(document).ready(function () {
+            listarProductos();
+        });
+
+        $(document).on('click', '.btn-detalle', function (event) {
+            var json = $(this).data("elemento")
+            window.location.href = "@Url.Action("GetProducto", "Home")" + "?id=" + json.pkProducto;
+        });
+
+        function listarProductos() {
+            jQuery.ajax({
+                url: '@Url.Action("GetProductosAll", "Home")',
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $("#catalogo-productos").html("");
+
+/*                    $("#catalogo-productos").LoadingOverlay("hide");*/
+                    if (data.data != null) {
+
+                        $.each(data.data, function (i, item) {
+                            //catalogo-productos
+                            console.log(item)
+                             $("<div>").addClass("col mb-5").append(
+                                $("<div>").addClass("card h-100").append(
+                                    $("<img>").addClass("card-img-top").attr({ "src": item.imagen}),
+                                    //Product details
+                                    $("<div>").addClass("card-body p-4").append(
+                                        $("<div>").addClass("text-center").append(
+                                            $("<h5>").addClass("fw-bolder").text(item.nombre),
+                                            "S/. " + item.precioventa
+                                        )
+                                    ),
+                                    //Product actions
+                                    $("<div>").addClass("card-footer p-4 pt-0 border-top-0 bg-transparent").append(
+                                        $("<div>").addClass("d-grid d-md-grid gap-2 d-md-block align-items-center text-center").append(
+                                            $("<button>").addClass("btn btn-outline-dark mt-auto btn-detalle").text("Ver Detalle").attr({ "data-elemento": JSON.stringify(item) }),
+                                            $("<button>").addClass("btn btn-outline-dark mt-auto btn-agregar-carrito").text("Agregar Carrito").attr({ "data-elemento-2": JSON.stringify(item)})
+                                        )
+                                    )
+                                )
+
+                            ).appendTo("#catalogo-productos");
+
+
+                        });
+                    }
+                },
+                error: function (error) {
+                    console.log(error)
+                },
+                //beforeSend: function () {
+                //    $("#catalogo-productos").LoadingOverlay("show");
+                //},
+            });
+        }
+</script>
+
+}

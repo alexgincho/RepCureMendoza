@@ -1,0 +1,142 @@
+@{
+    ViewData["Title"] = "Registrar";
+    Layout = "~/Views/Shared/Layout2.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <img src="https://images.vexels.com/media/users/3/208268/isolated/preview/899f67b99c2e34c06d5ef43ee4d5bc82-caracter-de-ejercicio-hombre-feliz.png">
+
+        </div>
+        <div class="col">
+            <div class="login-box">
+
+                <!-- /.login-logo -->
+                <div class="card card-outline card-warning">
+                    <div class="card-header text-center">
+                        <a href="#" class="h1"><b>GYM</b>S.A.C</a>
+                    </div>
+                    <div class="card-body">
+                        <p class="login-box-msg">Crear Cuenta</p>
+
+                        <form action="#" method="post">
+
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Nombres" id="Nombre">
+                                <!--<div class="input-group-append">
+                                    <div class="input-group-text">-->
+                                @*<span class="fas fa-user-tie"></span>*@
+                                <!--</div>
+                                </div>-->
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Apellido Paterno">
+                                <!--<div class="input-group-append">
+                                    <div class="input-group-text">-->
+                                @*<span class="fas fa-user-tie"></span>*@
+                                <!--</div>
+                                </div>-->
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Apellido Materno">
+                                <!--<div class="input-group-append">
+                                    <div class="input-group-text">-->
+                                @*<span class="fas fa-user-tie"></span>*@
+                                <!--</div>
+                                </div>-->
+                            </div>
+                            
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Celular">
+                                <!--<div class="input-group-append">
+                                    <div class="input-group-text">-->
+                                @*<span class="fas fa-user-tie"></span>*@
+                                <!--</div>
+                                </div>-->
+                            </div>
+                            
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Dirección">
+                                <!--<div class="input-group-append">
+                                    <div class="input-group-text">-->
+                                @*<span class="fas fa-user-tie"></span>*@
+                                <!--</div>
+                                </div>-->
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Correo Electronico">
+                                <!--<div class="input-group-append">
+                                    <div class="input-group-text">-->
+                                @*<span class="fas fa-user-tie"></span>*@
+                                <!--</div>
+                                </div>-->
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" placeholder="Contraseña">
+                                <!--div class="input-group-append">
+                                    <div class="input-group-text">-->
+                                @*@<span class="fas fa-lock"></span>*@
+                                <!--</div>
+                                </div>-->
+                            </div>
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="icheck-primary">
+                                        <input type="checkbox" id="remember">
+                                        <label for="remember">
+                                            He leído y acepto las condiciones de protección de datos.
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-4">
+                                    <button type="submit" id="Registrar"class="btn btn-warning btn-block">Crear</button>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- /.login-box -->
+
+@section Scripts {
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+            let Registrar = document.getElementById("Registrar")
+            let Nombre = document.getElementById("Nombre")
+
+            Registrar.addEventListener("click", function (e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Bienvenido  ' + Nombre.value + '',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                }).then((result => {
+
+                    window.location.href = "https://proyectogymusmp.herokuapp.com/";
+
+                }));
+
+            });
+
+
+
+        }
+
+    </script>
+}

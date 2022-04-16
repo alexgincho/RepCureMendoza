@@ -1,0 +1,55 @@
+﻿<!-- Modal Proveedor Mantenimiento -->
+@model ProyectoUSMP_GYM.Models.ModelDB.Proveedor
+
+<div class="modal fade" id="modal-default" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">@(Model.PkProveedor !=0 ? "Actualizar":"Registrar") Proveedor</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="FormSaveProveedor">
+                    <input type="hidden" asp-for="PkProveedor">
+                    <div class="form-row">
+                        <div class="col">
+                            <label asp-for="Ruc"></label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Ruc" asp-for="Ruc" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label>Razon Social</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Razon Social" asp-for="Razonsocial" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label>Direccion</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Direccion" asp-for="Direccion" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label>Telefono</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Telefono" asp-for="Telefono" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label>Email</label>
+                            <input type="email" class="form-control form-control-sm" placeholder="Email" asp-for="Email" autocomplete="off">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id=@(Model.PkProveedor !=0 ? "btnUpdate": "btnSave")>@(Model.PkProveedor!=0 ? "Actualizar":"Guardar")</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {}

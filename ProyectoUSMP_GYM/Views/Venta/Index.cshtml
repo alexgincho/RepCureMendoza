@@ -1,0 +1,146 @@
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Title = "Producto";
+}
+<style>
+    .btn-stilo {
+        margin-top: 29px;
+    }
+
+    #TableCompraProducto {
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12">
+
+    </div>
+</div>
+<div class="modal-container-producto"></div> <!-- Modal Producto -->
+<div class="modal-container-cliente"></div> <!-- Modal Cliente -->
+<div class="row">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="staticEmail" class="col-form-label col-form-label-sm">Codigo Venta : </label>
+                            <input type="text" class="form-control form-control-sm" id="CodigoV" value="VTN00000000001">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="staticEmail" class="col-form-label  col-form-label-sm">Fecha Registro : </label>
+                            <input type="date" class="form-control form-control-sm" id="FechaEntrega">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <button class="btn btn-primary btn-sm btn-block btn-stilo" id="AgregarVentas"> Realizar Venta </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="staticEmail" class="col-form-label  col-form-label-sm">Nombre y Apellido : </label>
+                            <div class="input-group mb-3">
+                                <input type="hidden" class="form-control form-control-sm" id="pkUsuarios">
+                                <input type="text" class="form-control form-control-sm" placeholder="Ingrese Cliente" id="NombreCliente">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary btn-sm" type="button" id="btnBuscar"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <button class="btn btn-primary btn-sm btn-block btn-stilo" disabled> <i class="fa fa-plus-circle"></i> Agregar Cliente </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="staticEmail" class="col-form-label col-form-label-sm">Direccion : </label>
+                            <input type="text" class="form-control form-control-sm" id="Direccion" value="Av. Ejercito # 4000">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="staticEmail" class="col-form-label col-form-label-sm">Departamento</label>
+                            <input type="text" class="form-control form-control-sm" id="fkDepartamento" value="Arequipa">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="staticEmail" class="col-form-label col-form-label-sm">Provincia</label>
+                            <input type="text" class="form-control form-control-sm" id="fkProvincia" value="Arequipa">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="staticEmail" class="col-form-label col-form-label-sm">Distrito</label>
+                            <input type="text" class="form-control form-control-sm" id="fkDistrito" value="Arequipa">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-form-label col-form-label-sm">Observacion : </label>
+                            <textarea class="form-control form-control-sm" id="Observacion" cols="5" placeholder="Ingrese Observacion"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <!-- Imagen o Logo de la Empresa -->
+            </div>
+        </div>
+        <!-- Tabla de Productos -->
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button class="btn btn-primary btn-sm" id="btnAddProducto"> <i class="fa fa-plus-circle"></i> Agregar Producto </button>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="Total" class="col-sm-2 col-form-label col-form-label-sm">Total : </label>
+                            <div class="col-sm-10">
+                                <input type="text" disabled class="form-control form-control-sm" id="Total" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-2">
+                <table class="table table-hover" id="TableCompraProducto">
+                    <thead>
+                        <tr>
+                            <th> Accion  </th>
+                            <th> Codigo Producto</th>
+                            <th> Descripcion Producto </th>
+                            <th> Cantidad </th>
+                            <th> Precio Unitario</th>
+                            <th> Descuento </th>
+                            <th> Sub Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script src="~/js/Venta/Index.js"></script>
+}

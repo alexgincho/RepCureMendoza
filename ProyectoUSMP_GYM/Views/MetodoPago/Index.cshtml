@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ ViewData["Title"] = "Metodo de Pago";
+                    Layout = "~/Views/Shared/Layout2.cshtml"; }
+
+<div class="section-title">
+    <h3>Método de Pago</h3>
+    <hr>
+</div>
+
+<div class="container">
+
+    <div class="col-md-4">
+        <div class="card bg-light">
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-12">
+                        <div class="payment-info">
+                            <div class="d-flex justify-content-between align-items-center"><span>Detalle de Tarjeta</span></div>
+                            <span class="type d-block mt-3 mb-1">Tipo de tarjeta</span>
+                            <label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="60" src="~/assets/img/master.png" /></span> </label>
+                            <label class="radio ml-2"> <input type="radio" name="card" value="payment"> <span><img width="60" src="~/assets/img/visa.png" /></span> </label>
+                            <div>
+                                <label class="credit-card-label mb-1 mt-2">Nombre del Titular</label>
+                                <input type="text" class="form-control credit-inputs" placeholder="Nombre" id="trj_nombre">
+                            </div>
+                            <div>
+                                <label class="credit-card-label mb-1 mt-2">Número de tarjeta</label>
+                                <input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000" id="trj_numero">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="credit-card-label mb-1 mt-2">Vigencia</label>
+                                    <input type="text" class="form-control credit-inputs" placeholder="12/24" id="trj_vigencia">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="credit-card-label mb-1 mt-2">CVV</label>
+                                    <input type="text" class="form-control credit-inputs" placeholder="342" id="trj_cvv">
+                                </div>
+                            </div>
+                            <hr class="line">
+                            <button class="btn btn-primary btn-block mt-3" id="btnProcesarPago" type="button">Confirmar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

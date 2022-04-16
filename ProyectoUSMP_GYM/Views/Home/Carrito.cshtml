@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/Layout2.cshtml";
+}
+<div class="row mt-5 pt-5 p-2">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="product-details mr-2">
+                            <div class="d-flex justify-content-between">
+                                <span class="ml-2">Detalle Compra</span>
+                                <a class="btn btn-danger" href="@Url.Action("Index","Tienda")">Volver</a>
+                            </div>
+                            <hr class="mt-2 mb-2">
+                            <div class="justify-content-start mb-2">
+                                Tienes <span id="cantidad-articulos" class="ml-1">0</span> artículo(s) en tu carrito
+                            </div>
+                            <div id="productos-seleccionados">
+                                <table class="table table-striped table-sm" id="content-productos-carrito">
+                                    <thead>
+                                        <tr>
+                                            <th>Descripcion</th>
+                                            <th>Cantidad</th>
+                                            <th>Precio</th>
+                                            <th>SubTotal</th>
+                                            <th> </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <div class="row">
+
+                                    <div class="col-12">
+                                        <div class="payment-info">
+                                            <div class="d-flex justify-content-between align-items-center"><span>Metodo de Pago</span></div>
+                                            <span class="type d-block mt-3 mb-1">Tipo de tarjeta</span>
+                                            <label class="radio"> <input id="card" type="radio" name="card" value="payment" checked> <span><img width="60" src="~/assets/img/master.png" /></span> </label>
+                                            <label class="radio ml-2"> <input id="card" type="radio" name="card" value="visa"> <span><img width="60" src="~/assets/img/visa.png" /></span> </label>
+                                            <div>
+                                                <label class="credit-card-label mb-1 mt-2">Nombre del Titular</label>
+                                                <input type="text" class="form-control credit-inputs" placeholder="Nombre" id="trj_nombre">
+                                            </div>
+                                            <div>
+                                                <label class="credit-card-label mb-1 mt-2">Número de tarjeta</label>
+                                                <input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000" id="trj_numero">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="credit-card-label mb-1 mt-2">Vigencia</label>
+                                                    <input type="text" class="form-control credit-inputs" placeholder="12/24" id="trj_vigencia">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="credit-card-label mb-1 mt-2">CVV</label>
+                                                    <input type="text" class="form-control credit-inputs" placeholder="342" id="trj_cvv">
+                                                </div>
+                                            </div>
+                                            <hr class="line">
+                                            <div class="d-flex justify-content-between information"><span>Total a Pagar</span><span id="totalPagar">S/. 0</span></div>
+                                            <button class="btn btn-primary btn-block mt-3" id="btnProcesarPago" type="button">Confirmar</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+@section Scripts {
+    <script src="~/js/Carrito/_Carrito.js"></script>
+    <script type="text/javascript">
+
+    </script>
+}
+

@@ -1,0 +1,115 @@
+<!-- Modal Personal Mantenimiento -->
+@model ProyectoUSMP_GYM.Models.ModelDB.Producto
+
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
+<div class="modal fade" id="modal-default" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">@(Model.PkProducto !=0 ? "Actualizar":"Registrar") Producto</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" asp-for="PkProducto">
+                <form id="FormSavePersonal">
+                    <div class="form-row">
+                        <div class="col">
+                            <label asp-for="Nombre"></label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Nombre" asp-for="Nombre" autocomplete="off">
+                        </div>
+                        <div class="col">
+                            <label>Codigo</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Codigo" asp-for="Codigo" autocomplete="off">
+                            <span asp-validation-for="Codigo" class="alert-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label>Descripcion</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Descripcion de producto" asp-for="Descripcion" autocomplete="off">
+                        </div>
+                        <div class="col">
+                            <label>Precio de Venta</label>
+                            <input type="number" class="form-control form-control-sm" placeholder="Precio de Venta" asp-for="Precioventa" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label>Precio de Compra</label>
+                            <input type="number" class="form-control form-control-sm" placeholder="Precio de Compra" asp-for="Preciocompra" autocomplete="off">
+                        </div>
+                        <div class="col">
+                            <label>Cantidad</label>
+                            <input type="number" class="form-control form-control-sm" placeholder="Cantidad" asp-for="Cantidad" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label>Descuento</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Descuento" asp-for="Descuento" autocomplete="off">
+                        </div>
+
+                        <div class="col">
+                            <label>Categoria</label>
+                            <select class="form-control form-control-sm" asp-for="FkCategoria">
+
+                                @foreach (var Cat in ViewBag.Categoria)
+                                {
+                                    <option value="@Cat.PkCategoria"> @Cat.Descripcion </option>
+                                }
+
+                            </select>
+                        </div>
+
+
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label>Fecha de Vencimiento</label>
+                            <input type="date" class="form-control form-control-sm" placeholder="Fecha de Vencimiento" asp-for="Fechavencimiento" autocomplete="off">
+                        </div>
+                        <div class="col">
+                            <label>Imagen</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="URL de imagen" asp-for="Imagen" autocomplete="off">
+                        </div>
+                        <br />
+                    </div>
+                    
+                    
+                    @*<div class="form-row">
+                        
+                        
+                        <div class="col">
+                            <button id="cargar" type="button" class="btn btn-primary"> Ver Imagen </button>
+                        </div>
+                        <div  id="image"></div>
+
+                    </div>*@
+                </form>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id=@(Model.PkProducto !=0 ? "btnUpdate": "btnSave")>@(Model.PkProducto!=0 ? "Actualizar":"Guardar")</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<script>
+
+    $("#cargar").click(function () {
+
+        var image = new Image();
+
+        var src = document.getElementById('url').value; 
+        image.src = src;
+        image.style.height = '250px';
+        image.style.width = '200px';
+        $('#image').append(image);
+    });
+</script>*@
+
+

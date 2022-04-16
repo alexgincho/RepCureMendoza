@@ -1,0 +1,28 @@
+@{ 
+    Layout = "_Layout";
+    ViewBag.Title = "Producto";
+}
+
+<!-- Pagina Principal Producto -->
+<div class="row">
+    <div class="col-md-12">
+        <button class="btn btn-primary" id="btnAddProducto" data-target="#staticBackdrop"><i class="fas fa-user-plus"></i>  Agregar Producto</button>
+    </div>
+</div>
+<div class="modal-container"></div> <!-- Contenedor del Modal-->
+
+<div class="row">
+    <div class="col-md-12 mt-5">
+        <div class="conten-table">
+            <table id="TableProducto" class="table table-head-fixed">
+                
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    
+    <script src="~/js/Producto/Index.js"></script>
+
+}

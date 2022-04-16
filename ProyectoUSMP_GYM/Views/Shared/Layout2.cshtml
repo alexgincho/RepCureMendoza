@@ -1,0 +1,219 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using ProyectoUSMP_GYM.Helpers;
+@using ProyectoUSMP_GYM.Models.ModelDB;
+@using ProyectoUSMP_GYM.Models.Response;
+@{
+    var Usuario = SessionHelper.GetObjectFromJson<Usuario>(Context.Session, "usuario");
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>@ViewData["Title"] - WebUser</title>
+
+
+    <title>Tempo Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/assets/img/favicon.png" rel="icon">
+    <link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/isotope-layout/isotope.pkgd.js" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/Plugins/fontawesome-free/css/all.min.css" />
+    <!-- Template Main CSS File -->
+    <link href="~/assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.10/dist/sweetalert2.all.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <h1 class="logo"><a href="index.html">MutantGYM</a></h1>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" asp-controller="Home" asp-action="Index">Inicio</a></li>
+                    <li><a class="nav-link scrollto" asp-controller="Home" asp-action="Index">Acerca de Nosotros</a></li>
+                    <li><a class="nav-link scrollto" asp-controller="Home" asp-action="Index">Horarios</a></li>
+                    <li><a class="nav-link scrollto " asp-controller="Home" asp-action="VistaProducto">Producto</a></li>
+                    <li><a class="nav-link scrollto" asp-controller="Home" asp-action="Equipo">Equipo</a></li>
+                    <li><a class="nav-link scrollto " asp-controller="Home" asp-action="Registrar">Registrate</a></li>
+                    <li>
+                        <a class="btn btn-success bi bi-cart4" asp-controller="Home" asp-action="Carrito">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill contador-carrito">0</span>
+                        </a>
+
+                    </li>
+                    @if (Usuario != null)
+                    {
+                        <li><a class="nav-link scrollto " asp-controller="LoginUsuario" asp-action="Index"><i class="fas fa-user-shield"></i> @Usuario.Nombre @Usuario.Apellidopaterno </a></li>
+                    }
+                    else
+                    {
+                        <li><a class="nav-link scrollto " asp-controller="LoginUsuario" asp-action="Index"><i class="fas fa-user-shield"></i>Login</a></li>
+                    }
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header><!-- End Header -->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+        <div class="hero-container">
+
+            <h1>¿Cuál es tu objetivo?</h1>
+
+            <h2>"Si entrenas duro, no solo serás duro, serás duro de superar."</h2>
+            <a href="~/LoginUsuario" class="btn-get-started scrollto">Empezar</a>
+        </div>
+    </section>
+    <main class="container">
+        @RenderBody()
+    </main>
+
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h3>MutantGYM</h3>
+                        <p>
+                            C. Sambaray, <br>
+                            Quillabamba 08741 <br>
+                            Perú<br><br>
+                            <strong>Celular:</strong> +51 953 352 761<br>
+                            <strong>Email:</strong> informes@mutantgym.pe<br>
+                        </p>
+                    </div>
+                    <div class="col-lg-2 col-md-6 footer-links">
+                        <h4>Enlaces de busqueda</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Nosotros</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Servicios</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Equipo</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Politicas de privacidad</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Nuestros Services</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Plan de alimentación</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Asesor de entrenamiento</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Asesor nutricional</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Venta de suplementos</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 footer-newsletter">
+                        <h4>Suscribete para nuevas ofertas</h4>
+                        <p>Te enviaremos nuevas promociones en membresias o productos</p>
+                        <form action="" method="post">
+                            <input type="email" name="email"><input type="submit" value="Enviar">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container d-md-flex py-4">
+
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>MutantGYM</span></strong>. Todos los derechos reservados, grupofuxia@tmg.pe
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/assets/js/main.js"></script>
+    <script>
+
+        let ArrayProducto = [];
+        $(document).on('click', '.btn-agregar-carrito', function (event) {
+            var json = $(this).data("elemento-2");
+            var actual = parseInt($(".contador-carrito").text());
+            actual = actual + 1;
+            $(".contador-carrito").text(actual);
+            /*$('#toast-carrito').toast('show');*/
+            //if (ArrayProducto.length > 0) {
+            //    var busqueda = ArrayProducto.find(v => v.pkProducto);
+            //    console.log(busqueda)
+            //    if (!busqueda) { ArrayProducto.push(json);}
+            //}
+            //else {
+            //    ArrayProducto.push(json);
+            //}
+            ArrayProducto.push(json);
+            localStorage.setItem("DetalleCarrito", JSON.stringify(ArrayProducto));
+        });
+
+
+        if (localStorage.getItem("DetalleCarrito")) {
+            let CarritoJson = localStorage.getItem("DetalleCarrito");
+            let JsonCarrito = JSON.parse(CarritoJson);
+            let ArrayCard = [];
+            for (let i = 0; i < JsonCarrito.length; i++) {
+                ArrayCard.push(JsonCarrito[i]);
+            }
+            $(".contador-carrito").text(ArrayCard.length);
+            /*            $('#toast-carrito').toast('show');*/
+            console.log(ArrayCard)
+
+        }
+        else {
+            console.log("Carrito Vacio")
+        }
+
+
+
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

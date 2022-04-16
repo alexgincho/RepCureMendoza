@@ -1,0 +1,26 @@
+﻿@{ 
+    Layout = "_Layout";
+    ViewBag.Title = "Personal";
+}
+
+<!-- Pagina Principal del Personal -->
+<div class="row">
+    <div class="col-md-12">
+        <button class="btn btn-primary" id="btnAddPersonal" data-target="#staticBackdrop"><i class="fas fa-user-plus"></i>  Agregar Personal</button>
+    </div>
+</div>
+<div class="modal-container"></div> <!-- Contenedor del Modal-->
+
+<div class="row">
+    <div class="col-md-12 mt-5">
+        <div class="conten-table">
+            <table id="TablePersonal" class="table table-head-fixed">
+                
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+     <script src="~/js/Personal/Index.js"></script>
+}

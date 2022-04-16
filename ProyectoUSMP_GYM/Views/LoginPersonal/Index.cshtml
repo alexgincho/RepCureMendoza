@@ -1,0 +1,178 @@
+﻿@model ProyectoUSMP_GYM.Models.Response.LoginPersonal
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/lib/Plugins/fontawesome-free/css/all.min.css" />
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="~/lib/Plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/lib/dist/css/adminlte.min.css" />
+</head>
+
+<body class="hold-transition login-page">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img style="width: 370px;" src="~/assets/img/admin.png">
+
+            </div>
+            <div class="col">
+                <div class="login-box">
+
+                    <!-- /.login-logo -->
+                    <div class="card card-outline card-primary">
+                        <div class="card-header text-center">
+                            <a href="#" class="h1"><b>GYM </b>S.A.C</a>
+                        </div>
+                        <div class="card-body">
+                            <p class="login-box-msg">Iniciar sesión</p>
+
+                            <form action="#" method="post">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Usuario" asp-for="Usuario">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-user-tie"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="password" class="form-control" placeholder="Password"
+                                           asp-for="Password">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-lock"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="icheck-primary">
+                                            <input type="checkbox" id="remember">
+                                            <label for="remember">
+                                                Recordar
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!-- /.col -->
+                                    <div class="col-4">
+                                        <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /.login-box -->
+    <!-- Detalle Venta-->
+    <!--    <div class="container">
+        <form>
+            <div class="form-group row">
+                <label for="Codigo" class="col-sm-1 col-form-label">Codigo</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="Codigo" placeholder="Ingrese el codigo">
+                </div>
+            </div><br>
+            <div class="form-group row">
+
+                <label for="Nombre" class="col-sm-1 col-form-label">Nombre</label>
+                <div class="col-sm-8">
+                    <div class="row">
+                        <div class="col-md-7 mb-2">
+                            <div><input class=" form-control" type="search" placeholder="Ingrese Nombre" aria-label="Search"></div>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <div><button class="btn btn-outline-success" type="submit">Buscar</button></div>
+                        </div>
+                    </div>
+                </div><br>
+            </div><br>
+            <div class="form-group row">
+                <label for="DIRECCION" class="col-sm-1 col-form-label">Dirección</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="Codigo" placeholder="Ingrese la DIRECCION">
+                </div>
+            </div><br>
+
+            <div class="form-group row">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="Delivery">
+                    <label class="form-check-label" for="Delivery">Delivery</label>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-3 mb-2">
+
+                    <div><input type="text" class="form-control" placeholder="Departamento"></div>
+                </div>
+
+                <div class="col-md-3 mb-2">
+
+                    <div><input type="text" class="form-control" placeholder="Provincia"></div>
+                </div>
+                <div class="col-md-3 mb-2">
+
+                    <div><input type="text" class="form-control" placeholder="Distrito"></div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-2">
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" cols="190" rows="7"
+                                  placeholder="Describa Producto"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-2">
+
+                    <div>
+                        <label for="Fechadeventa" class="col-sm-10 col-form-label">Fecha de Venta</label>
+                        <input type="date" class="form-control" placeholder="fecha Venta">
+                    </div>
+                    <div>
+                        <label for="Fechaderegistro" class="col-sm-10 col-form-label">Fecha de Registro</label>
+                        <input type="date" class="form-control" placeholder="Fecha Registro">
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+        -->
+    <!--Fin Detalle Venta-->
+
+
+    <script src="~/lib/Plugins/jquery/jquery.min.js"></script>
+    <script src="~/lib/Plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/dist/js/adminlte.min.js"></script>
+
+    @section Scripts {
+        <script src="~/js/Login/_AuthLogin.js"></script>
+    }
+
+</body>
+
+</html>
